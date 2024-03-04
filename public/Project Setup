@@ -1,0 +1,19 @@
+PROJECT SETUP
+
+1. CREATE A REACT APP WITH TYPESCRIPT
+  yarn create react-app my-app --template typescript
+
+2. CREATE A GIT REPO
+
+3. IMPORT PROJECT INTO NEW REPO
+  cd to code dir
+  git init -b master
+  git add .
+  git commit -m "First commit"
+  git remote add origin REMOTE-URL
+  git push -u origin master
+
+4. ADD  LINTER
+  npm init @eslint/config
+
+5. 
