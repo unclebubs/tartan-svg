@@ -16,4 +16,6 @@ PROJECT SETUP
 4. ADD  LINTER
   npm init @eslint/config
 
-5. 
+5. ADD REDUX
+  yarn add react-redux
+  yarn add @reduxjs/toolkit
