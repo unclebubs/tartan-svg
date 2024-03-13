@@ -28,7 +28,7 @@ const App: React.FC = () => {
       </Row>
       <Row >
         <Col>
-          <TartanSVGNew id='tartanId' style={{ border: '1px solid red' }} useBlur blurValue={0.5}/>
+          <TartanSVGNew id='tartanId' useBlur blurValue={0.5}/>
         </Col>
       </Row>
     </Container>

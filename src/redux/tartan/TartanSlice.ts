@@ -1,18 +1,20 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit'
-import { extractThreadsFromThreadCount, isHalfSet, type Thread } from '../../utils/TartanUtils'
+import { TartanEntity } from './TartanEntity'
 
 interface TartanState {
+  name: string
   threadCount: string
   colourPalette: string
-  threads: Thread[]
-  isHalfSet: boolean
+  tartan: TartanEntity | null
 }
 
 const initialState: TartanState = {
-  threadCount: 'CW8G60K2G2K2G6K24DB20R6',
+  name: 'Abercrombie Ancient',
+  // threadCount: 'CW8G60K2G2K2G6K24DB20R/6',
+  // colourPalette: 'G=006818GREEN;K=101010BLACK;CW=FCFCFCCLEAR;DB=202060DARK BLUE;R=C80000RED;',
+  threadCount: 'G56 W12 B/28',
   colourPalette: 'G=006818GREEN;K=101010BLACK;CW=FCFCFCCLEAR;DB=202060DARK BLUE;R=C80000RED;',
-  threads: [],
-  isHalfSet: false
+  tartan: null
 }
 
 export const counterSlice = createSlice({
@@ -20,9 +22,7 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     update: (state, action: PayloadAction<string>) => {
-      state.threadCount = action.payload
-      state.threads = extractThreadsFromThreadCount(action.payload)
-      state.isHalfSet = isHalfSet(action.payload)
+      state.tartan = new TartanEntity('Abercrombie Ancient', 'CW8G60K2G2K2G6K24DB20R/6', 'G=006818GREEN;K=101010BLACK;CW=FCFCFCCLEAR;DB=202060DARK BLUE;R=C80000RED;')
     }
   }
 })
