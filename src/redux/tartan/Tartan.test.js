@@ -39,7 +39,7 @@ it('Test buildFullSet is working correctly', () => {
 
 it('Test returning getSettSize() is working correctly', () => {
   const tartan = new TartanEntity(NAME, THREADCOUNT, COLOUR_PALETTE)
-  expect(tartan.getSetSize()).toEqual(108)
+  expect(tartan.getSetSize()).toEqual(216)
 
   const tartan2 = new TartanEntity(NAME, THREADCOUNT, COLOUR_PALETTE, 4)
   expect(tartan2.getSetSize()).toEqual(216)

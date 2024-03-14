@@ -10,21 +10,27 @@ export class TartanEntity {
   readonly colourPalette: ColourPalette
   readonly isHalfSet: boolean
   readonly noOfThreads: number
-  // noOfSetts: number
+  noOfSetts: number
+  imageSize: number
+  readonly scaleFactor: number
   strokeLength: number = 2
+  readonly scaledStrokeLength: number
   _threadCount: string
   _palette: string
 
-  constructor (name: string, threadCount: string, palette: string, strokeLength: number = 2) {
+  constructor (name: string, threadCount: string, palette: string, noOfSetts: number, imageSize: number) {
     this.name = name
-    this.strokeLength = strokeLength
     this._threadCount = threadCount
     this._palette = palette
+    this.noOfSetts = noOfSetts
+    this.imageSize = imageSize
     this.colourPalette = new ColourPalette(this._palette)
     this.threads = TartanEntity.extractThreadsFromThreadCount(this._threadCount, this.colourPalette)
     this.isHalfSet = this.updateIsHalfSet()
     this.fullSet = this.buildFullSet(this.threads, this.isHalfSet)
     this.noOfThreads = this.updateNumberOfThreads()
+    this.scaleFactor = (this.imageSize / (this.noOfSetts * this.getSetSize()))
+    this.scaledStrokeLength = this.scaleFactor * this.strokeLength
   }
 
   static addSpaceAfterNumbers (str: string): string {
@@ -54,7 +60,7 @@ export class TartanEntity {
   }
 
   getSetSize (): number {
-    return this.strokeLength / 2 * this.noOfThreads
+    return this.strokeLength * this.noOfThreads
   }
 
   static extractThreadsFromThreadCount (threadCount: string, colourPalette: ColourPalette): Thread[] {

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Tartan } from './components/Tartan'
 import { Col, Container, Row } from 'react-bootstrap'
-import TartanSVGNew from './components/TartanSVGNew'
+import TartanImage from './components/TartanImage'
+import { TartanForm } from './components/TartanForm'
 // import TartanSVGOrig from './components/TartanSVGOrig'
 
 // const tartan = {
@@ -20,15 +20,15 @@ import TartanSVGNew from './components/TartanSVGNew'
 
 const App: React.FC = () => {
   return (
-    <Container fluid className='bg-dark' style={{ height: '100vh' }}>
+    <Container className='bg-dark pt-4' style={{ height: '100vh' }}>
       <Row >
-        <Col >
-        <Tartan />
+        <Col xl={8} className='offset-xl-2'>
+        <TartanForm />
         </Col>
       </Row>
       <Row >
-        <Col>
-          <TartanSVGNew id='tartanId' useBlur blurValue={0.5}/>
+        <Col >
+          <TartanImage id='tartanId' blurValue={0.0}/>
         </Col>
       </Row>
     </Container>
