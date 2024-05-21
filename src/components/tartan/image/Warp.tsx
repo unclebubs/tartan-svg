@@ -1,5 +1,5 @@
 import React, { type ReactElement } from 'react'
-import { useAppSelector } from '../app/hooks'
+import { useAppSelector } from '../../../app/hooks'
 
 export const Warp: React.FC = () => {
   const { tartan } = useAppSelector((state) => state.counter)

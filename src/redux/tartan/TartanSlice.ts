@@ -7,6 +7,18 @@ export interface UpdateTartanActionType {
   colourPalette: string
   noOfSetts: number
   imageSize: number
+  xOffsetThreadCount: number
+  yOffsetThreadCount: number
+}
+
+export interface UpdateOffsetActionType {
+  xOffsetThreadCount: number
+  yOffsetThreadCount: number
+}
+
+export interface UpdateFilterActionType {
+  isUseBlurFilter: boolean
+  blurValue: number
 }
 
 interface TartanState {
@@ -15,7 +27,9 @@ interface TartanState {
   colourPalette: string
   imageSize: number
   noOfSetts: number
-  tartan: TartanEntity | null
+  tartan: TartanEntity
+  isUseBlurFilter: boolean
+  blurValue: number
 }
 
 const initialState: TartanState = {
@@ -24,7 +38,9 @@ const initialState: TartanState = {
   colourPalette: 'G=006818GREEN;K=101010BLACK;CW=FCFCFCCLEAR;DB=202060DARK BLUE;R=C80000RED;',
   imageSize: 500,
   noOfSetts: 1,
-  tartan: null
+  tartan: new TartanEntity('', '', '', 0, 0, 0, 0),
+  isUseBlurFilter: true,
+  blurValue: 0.5
 }
 
 export const counterSlice = createSlice({
@@ -32,14 +48,25 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     update: (state, action: PayloadAction<UpdateTartanActionType>) => {
-      const { name, threadCount, colourPalette, noOfSetts, imageSize } = action.payload
-      console.log('The payload is ', action.payload)
-      state.tartan = new TartanEntity(name, threadCount, colourPalette, noOfSetts, imageSize)
+      const { name, threadCount, colourPalette, noOfSetts, imageSize, xOffsetThreadCount, yOffsetThreadCount } = action.payload
+      state.tartan = new TartanEntity(name, threadCount, colourPalette, noOfSetts, imageSize, xOffsetThreadCount, yOffsetThreadCount)
+    },
+    updateOffset: (state, action: PayloadAction<UpdateOffsetActionType>) => {
+      const { xOffsetThreadCount, yOffsetThreadCount } = action.payload
+      const { name, threadCount, palette, noOfSetts, imageSize } = state.tartan
+      const newT = new TartanEntity(name, threadCount, palette, noOfSetts, imageSize, xOffsetThreadCount, yOffsetThreadCount)
+      state.tartan = newT
+    },
+    updateFilter: (state, action: PayloadAction<UpdateFilterActionType>) => {
+      const { isUseBlurFilter, blurValue } = action.payload
+      state.isUseBlurFilter = isUseBlurFilter
+      state.blurValue = blurValue
     }
+
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { update } = counterSlice.actions
+export const { update, updateOffset, updateFilter } = counterSlice.actions
 
 export default counterSlice.reducer

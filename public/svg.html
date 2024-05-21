@@ -27,19 +27,18 @@
   <title>React App</title>
 </head>
 
-<body class="bg-dark">
+<body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
-  <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+  <svg id="tartanId" height="1200" width="1200" xmlns="http://www.w3.org/2000/svg">
+    <filter id="test">
+      <feImage id='img1' href="/Border.png" />
+      <feBlend in="SourceGraphic" in2="img1" mode="multiply" />
+    </filter>
+    <defs>
+      <rect id="test" x="0" y="0" height="100%" width="20" fill="white"></rect>
+    </defs>
+    <rect x="0" y="0" height="500" width="500" fill="#006818" filter="url(#test)"></rect>
+  </svg>
 </body>
 
 </html>

@@ -5,32 +5,38 @@ export class TartanEntity {
   static halfSettToken: string = '/'
 
   name: string
-  readonly threads: Thread[]
-  readonly fullSet: Thread[]
-  readonly colourPalette: ColourPalette
-  readonly isHalfSet: boolean
-  readonly noOfThreads: number
+  readonly threads: Thread[] = []
+  readonly fullSet: Thread[] = []
+  readonly colourPalette: ColourPalette | null = null
+  readonly isHalfSet: boolean = false
+  readonly noOfThreads: number = 0
   noOfSetts: number
   imageSize: number
-  readonly scaleFactor: number
+  readonly scaleFactor: number = 1
   strokeLength: number = 2
-  readonly scaledStrokeLength: number
+  readonly scaledStrokeLength: number = 1
   _threadCount: string
   _palette: string
+  xOffsetThreadCount: number
+  yOffsetThreadCount: number
 
-  constructor (name: string, threadCount: string, palette: string, noOfSetts: number, imageSize: number) {
+  constructor (name: string, threadCount: string, palette: string, noOfSetts: number, imageSize: number, xOffsetThreadCount: number, yOffsetThreadCount: number) {
     this.name = name
     this._threadCount = threadCount
     this._palette = palette
     this.noOfSetts = noOfSetts
     this.imageSize = imageSize
-    this.colourPalette = new ColourPalette(this._palette)
-    this.threads = TartanEntity.extractThreadsFromThreadCount(this._threadCount, this.colourPalette)
-    this.isHalfSet = this.updateIsHalfSet()
-    this.fullSet = this.buildFullSet(this.threads, this.isHalfSet)
-    this.noOfThreads = this.updateNumberOfThreads()
-    this.scaleFactor = (this.imageSize / (this.noOfSetts * this.getSetSize()))
-    this.scaledStrokeLength = this.scaleFactor * this.strokeLength
+    this.xOffsetThreadCount = xOffsetThreadCount
+    this.yOffsetThreadCount = yOffsetThreadCount
+    if (name.length > 0 && threadCount.length > 0 && palette.length > 0) {
+      this.colourPalette = new ColourPalette(this._palette)
+      this.threads = TartanEntity.extractThreadsFromThreadCount(this._threadCount, this.colourPalette)
+      this.isHalfSet = this.updateIsHalfSet()
+      this.fullSet = this.buildFullSet(this.threads, this.isHalfSet)
+      this.noOfThreads = this.updateNumberOfThreads()
+      this.scaleFactor = (this.imageSize / (this.noOfSetts * this.getSetSize()))
+      this.scaledStrokeLength = this.scaleFactor * this.strokeLength
+    }
   }
 
   static addSpaceAfterNumbers (str: string): string {

@@ -1,5 +1,5 @@
 import React, { type ReactElement } from 'react'
-import { useAppSelector } from '../app/hooks'
+import { useAppSelector } from '../../../app/hooks'
 
 export const Weft: React.FC = () => {
   const { tartan } = useAppSelector((state) => state.counter)
