@@ -1,4 +1,5 @@
 import React, { type ReactElement } from 'react'
+
 import { Weft } from './Weft'
 import { Warp } from './Warp'
 import { useAppSelector } from '../../../app/hooks'
@@ -11,7 +12,7 @@ interface TartanProps {
   blurValue?: number
 }
 
-const TartanSVGNew: React.FC<TartanProps> = (props) => {
+const TartanSVG: React.FC<TartanProps> = (props) => {
   const { style, id } = props
   const { tartan, isUseBlurFilter, blurValue } = useAppSelector((state) => state.counter)
 
@@ -46,4 +47,4 @@ const TartanSVGNew: React.FC<TartanProps> = (props) => {
     </svg>
   )
 }
-export default TartanSVGNew
+export default TartanSVG

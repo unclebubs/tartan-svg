@@ -1,4 +1,5 @@
 import React, { type ReactElement } from 'react'
+
 import { useAppSelector } from '../../../app/hooks'
 
 export const Warp: React.FC = () => {
@@ -16,8 +17,8 @@ export const Warp: React.FC = () => {
   }
 
   return (
-   <g id="warp" mask="url(#threadHatchingMask)" >
-    <RenderWarp />
+    <g id="warp" mask="url(#threadHatchingMask)" >
+      <RenderWarp />
     </g>
   )
 }
