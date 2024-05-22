@@ -4,7 +4,7 @@ import { update, type UpdateTartanActionType } from '../../../redux/tartan/Tarta
 import { renderWithProviders } from '../../../utils/test-utils'
 import ThreadHatching from './ThreadHatching'
 
-test('Sets up initial state state with actions', () => {
+test('Sets up initial state state with actions', async () => {
   const store = setupStore()
   store.dispatch(
     update({
@@ -19,7 +19,7 @@ test('Sets up initial state state with actions', () => {
   )
 
   const hatchingPattern = renderWithProviders(<ThreadHatching />, { store })
-  const pattern = hatchingPattern.findByTestId('pattern')
+  const pattern = await hatchingPattern.findByTestId('pattern')
 
   expect(pattern).not.toBeNull()
 })
