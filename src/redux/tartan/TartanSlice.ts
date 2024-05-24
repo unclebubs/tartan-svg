@@ -33,10 +33,10 @@ interface TartanState {
 }
 
 const initialState: TartanState = {
-  name: 'Abercrombie Ancient',
-  threadCount: 'G56 W12 B/28',
-  colourPalette: 'G=006818GREEN;K=101010BLACK;CW=FCFCFCCLEAR;DB=202060DARK BLUE;R=C80000RED;',
-  imageSize: 500,
+  name: '',
+  threadCount: '',
+  colourPalette: '',
+  imageSize: 0,
   noOfSetts: 1,
   tartan: new TartanEntity('', '', '', 0, 0, 0, 0),
   isUseBlurFilter: true,

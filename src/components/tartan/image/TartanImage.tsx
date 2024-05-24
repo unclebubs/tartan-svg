@@ -1,20 +1,50 @@
-import React, { type ReactElement } from 'react'
-
+import React, { useEffect, type ReactElement } from 'react'
 import { Weft } from './Weft'
 import { Warp } from './Warp'
-import { useAppSelector } from '../../../app/hooks'
+import { useAppSelector, useAppDispatch } from '../../../app/hooks'
 import ThreadHatching from './ThreadHatching'
+import { type UpdateTartanActionType, update } from '../../../redux/tartan/TartanSlice'
 
 interface TartanProps {
   style?: React.CSSProperties
   id?: string
   useBlur?: boolean
   blurValue?: number
+  name: string
+  threadCount: string
+  colourPalette: string
+  imageSize: number
+  noOfSetts: number
+  xOffsetThreadCount: number
+  yOffsetThreadCount: number
 }
 
 const TartanSVG: React.FC<TartanProps> = (props) => {
+  const dispatch = useAppDispatch()
+
   const { style, id } = props
   const { tartan, isUseBlurFilter, blurValue } = useAppSelector((state) => state.counter)
+
+  useEffect(() => {
+    const {
+      name,
+      threadCount,
+      colourPalette,
+      imageSize,
+      noOfSetts,
+      xOffsetThreadCount,
+      yOffsetThreadCount
+    } = props
+    dispatch(update({
+      name,
+      threadCount,
+      colourPalette,
+      noOfSetts,
+      imageSize,
+      xOffsetThreadCount,
+      yOffsetThreadCount
+    } satisfies UpdateTartanActionType))
+  }, [props])
 
   const filter = (useBlur: boolean, blurValue: number): ReactElement | null => {
     if (useBlur) {
@@ -47,4 +77,5 @@ const TartanSVG: React.FC<TartanProps> = (props) => {
     </svg>
   )
 }
+
 export default TartanSVG

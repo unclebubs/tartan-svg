@@ -25,7 +25,7 @@ test('renders correctly', async () => {
     blurValue: 0
   }))
 
-  const tartanSVG = renderWithProviders(<TartanSVG id='testId' style={{ backgroundColor: 'red' }} />, { store })
+  const tartanSVG = renderWithProviders(<TartanSVG id='testId' style={{ backgroundColor: 'red' }} {...TEST_TARTAN_PARAMS} />, { store })
   expect(tartanSVG).toMatchSnapshot()
 })
 
@@ -37,7 +37,7 @@ test('does not render or reference filter when isUseBlurFilter is false', async 
     blurValue: 0
   }))
 
-  const tartanSVG = renderWithProviders(<TartanSVG />, { store })
+  const tartanSVG = renderWithProviders(<TartanSVG {...TEST_TARTAN_PARAMS} />, { store })
   expect(tartanSVG.queryByTestId('blurFilter')).toBeNull()
   expect(tartanSVG.queryByTestId('tartanRect')?.getAttribute('filter')).toBe('')
 })
@@ -45,8 +45,13 @@ test('does not render or reference filter when isUseBlurFilter is false', async 
 test('x and y offsets are applied correctly when imageSize matches settSize', async () => {
   const store = setupStore()
   // set image size to match sett size so offsets will just equal actual values
-  store.dispatch(update({ ...TEST_TARTAN_PARAMS, xOffsetThreadCount: 11, yOffsetThreadCount: 3, imageSize: 108 }))
-  const tartanSVG = renderWithProviders(<TartanSVG />, { store })
+  const tartanSVG = renderWithProviders(
+    <TartanSVG
+      {...TEST_TARTAN_PARAMS}
+      xOffsetThreadCount={11}
+      yOffsetThreadCount={3}
+      imageSize={108}
+    />, { store })
   expect(tartanSVG.getByTestId('testSett').getAttribute('x')).toBe('11')
   expect(tartanSVG.getByTestId('testSett').getAttribute('y')).toBe('3')
 })
@@ -54,8 +59,13 @@ test('x and y offsets are applied correctly when imageSize matches settSize', as
 test('x and y offsets are applied correctly when imageSize doesnt match settSize', async () => {
   const store = setupStore()
   // set image size to match 2 times sett size so offsets will just equal double values
-  store.dispatch(update({ ...TEST_TARTAN_PARAMS, xOffsetThreadCount: 11, yOffsetThreadCount: 3, imageSize: 216 }))
-  const tartanSVGb = renderWithProviders(<TartanSVG />, { store })
+  const tartanSVGb = renderWithProviders(
+    <TartanSVG
+      {...TEST_TARTAN_PARAMS}
+      xOffsetThreadCount={11}
+      yOffsetThreadCount={3}
+      imageSize={216}
+    />, { store })
   expect(tartanSVGb.getByTestId('testSett').getAttribute('x')).toBe('22')
   expect(tartanSVGb.getByTestId('testSett').getAttribute('y')).toBe('6')
 })
