@@ -2,9 +2,8 @@ import React from 'react'
 
 import TartanSVG from './TartanImage'
 import { render } from '@testing-library/react'
-import { type UpdateTartanActionType } from '../../../model/tartan/TartanSlice'
 
-const TEST_TARTAN_PARAMS: UpdateTartanActionType = {
+const TEST_TARTAN_PARAMS = {
   name: 'Test Tartan',
   threadCount: 'G56 W12 B/28',
   colourPalette: 'G=006818GREEN;W=FCFCFCCLEAR;B=202060DARK BLUE;',
