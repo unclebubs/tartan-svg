@@ -1,5 +1,5 @@
 import { type EnhancedStore, combineReducers, configureStore } from '@reduxjs/toolkit'
-import counterReducer from '../redux/tartan/TartanSlice'
+import counterReducer from '../model/tartan/TartanSlice'
 
 // Create the root reducer separately so we can extract the RootState type
 const rootReducer = combineReducers({

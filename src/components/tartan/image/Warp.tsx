@@ -1,10 +1,12 @@
 import React, { type ReactElement } from 'react'
+import { type TartanEntity } from '../../../model/tartan/TartanEntity'
 
-import { useAppSelector } from '../../../app/hooks'
+interface TartanProp {
+  tartan: TartanEntity
+}
 
-export const Warp: React.FC = () => {
-  const { tartan } = useAppSelector((state) => state.counter)
-  console.log('warp is ', tartan)
+export const Warp: React.FC<TartanProp> = (props) => {
+  const { tartan } = props
 
   const RenderWarp = (): ReactElement => {
     let x = 0

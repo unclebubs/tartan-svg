@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Button, Fade, Form } from 'react-bootstrap'
 
 import { useAppSelector, useAppDispatch } from '../../../app/hooks'
-import { type UpdateTartanActionType, update, updateOffset, updateFilter, type UpdateOffsetActionType } from '../../../redux/tartan/TartanSlice'
+import { type UpdateTartanActionType, update, updateOffset, updateFilter, type UpdateOffsetActionType } from '../../../model/tartan/TartanSlice'
 
 export const TartanForm: React.FC = () => {
   const dispatch = useAppDispatch()

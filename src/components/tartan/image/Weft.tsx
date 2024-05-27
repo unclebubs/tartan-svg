@@ -1,10 +1,13 @@
 import React, { type ReactElement } from 'react'
 
-import { useAppSelector } from '../../../app/hooks'
+import { type TartanEntity } from '../../../model/tartan/TartanEntity'
 
-export const Weft: React.FC = () => {
-  const { tartan } = useAppSelector((state) => state.counter)
-  console.log('weft is ', tartan?.fullSet)
+interface TartanProp {
+  tartan: TartanEntity
+}
+
+export const Weft: React.FC<TartanProp> = (props) => {
+  const { tartan } = props
 
   const RederWeft = (): ReactElement => {
     let y = 0
