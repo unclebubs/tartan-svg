@@ -3,11 +3,11 @@
 > A react component to create tartan svg images from a tartan's threadcount and colour palette.
 
 ## Install
-if u=you are using npm install using
+if you are using npm install using
 ```
 npm install tartan-svg 
 ```
-or if you are using yarn use
+or if you are using yarn 
 ```
 yarn add tartan-svg
 ```
@@ -35,7 +35,6 @@ function App () {
 export default App;
 ```
 
-https://github.com/unclebubs/tartan-img/blob/refactor-remove-redux/images/macdonald-tartan.png?raw=true
 
 ![demo png](https://github.com/unclebubs/tartan-img/blob/refactor-remove-redux/images/macdonald-tartan.png?raw=true)
 
