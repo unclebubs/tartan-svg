@@ -35,7 +35,9 @@ function App () {
 export default App;
 ```
 
-![demo png](https://github.com/unclububs/tartan-svg/images/master/macdonald-tartan.png)
+https://github.com/unclebubs/tartan-img/blob/refactor-remove-redux/images/macdonald-tartan.png?raw=true
+
+![demo png](https://github.com/unclebubs/tartan-img/blob/refactor-remove-redux/images/macdonald-tartan.png?raw=true)
 
 
 ## API
