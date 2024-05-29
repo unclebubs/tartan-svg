@@ -13,10 +13,10 @@ interface TartanProps {
   name: string
   threadCount: string
   colourPalette: string
-  imageSize: number
-  noOfSetts: number
-  xOffsetThreadCount: number
-  yOffsetThreadCount: number
+  imageSize?: number
+  noOfSetts?: number
+  xOffsetThreadCount?: number
+  yOffsetThreadCount?: number
 }
 
 const TartanSVG: React.FC<TartanProps> = (props) => {
@@ -29,12 +29,12 @@ const TartanSVG: React.FC<TartanProps> = (props) => {
       name,
       threadCount,
       colourPalette,
-      imageSize,
-      noOfSetts,
-      xOffsetThreadCount,
-      yOffsetThreadCount,
-      useBlur,
-      blurValue
+      imageSize = 500,
+      noOfSetts = 1,
+      xOffsetThreadCount = 0,
+      yOffsetThreadCount = 0,
+      useBlur = false,
+      blurValue = 0
     } = props
     setTartanEntity(new TartanEntity(name, threadCount, colourPalette, noOfSetts, imageSize, xOffsetThreadCount, yOffsetThreadCount, useBlur, blurValue))
   }, [props])

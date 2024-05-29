@@ -14,17 +14,6 @@ Object {
         width="1000"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <filter
-          data-testid="blurFilter"
-          id="blur"
-        >
-          <fegaussianblur
-            edgeMode="wrap"
-            in="SourceGraphic"
-            result="BLUR"
-            stdDeviation="0.5"
-          />
-        </filter>
         <defs>
           <mask
             height="1"
@@ -165,7 +154,7 @@ Object {
         <rect
           data-testid="tartanRect"
           fill="url(#sett)"
-          filter="url(#blur)"
+          filter=""
           height="100%"
           width="100%"
           x="0"
@@ -188,17 +177,6 @@ Object {
       width="1000"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <filter
-        data-testid="blurFilter"
-        id="blur"
-      >
-        <fegaussianblur
-          edgeMode="wrap"
-          in="SourceGraphic"
-          result="BLUR"
-          stdDeviation="0.5"
-        />
-      </filter>
       <defs>
         <mask
           height="1"
@@ -339,7 +317,7 @@ Object {
       <rect
         data-testid="tartanRect"
         fill="url(#sett)"
-        filter="url(#blur)"
+        filter=""
         height="100%"
         width="100%"
         x="0"

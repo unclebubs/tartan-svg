@@ -10,19 +10,19 @@ export class TartanEntity {
   readonly colourPalette: ColourPalette | null = null
   readonly isHalfSet: boolean = false
   readonly noOfThreads: number = 0
+  readonly scaleFactor: number = 1
+  readonly scaledStrokeLength: number = 1
+  strokeLength: number = 2
   noOfSetts: number
   imageSize: number
-  readonly scaleFactor: number = 1
-  strokeLength: number = 2
-  readonly scaledStrokeLength: number = 1
   _threadCount: string
   _palette: string
   xOffsetThreadCount: number
   yOffsetThreadCount: number
-  useBlur: boolean = false
-  blurValue: number = 0
+  useBlur: boolean
+  blurValue: number
 
-  constructor (name: string, threadCount: string, palette: string, noOfSetts: number, imageSize: number, xOffsetThreadCount: number, yOffsetThreadCount: number, useBlur: boolean = true, blurValue: number = 0.5) {
+  constructor (name: string, threadCount: string, palette: string, noOfSetts: number, imageSize: number, xOffsetThreadCount: number, yOffsetThreadCount: number, useBlur: boolean, blurValue: number = 0) {
     this.name = name
     this._threadCount = threadCount
     this._palette = palette
