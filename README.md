@@ -49,8 +49,8 @@ export default App;
 | useBlur | boolean | Use an SVG blux filter over the image to provide a revel of realism. Defaults to false. |
 | blurValue | number |  The level of bluring to be used bewteen 0 and 1. Defaults to 0
 | name | string | The name of the tartan which is used as an SVG title element |
-| threadCount | string | The tartan threadcount. See [below] (#Thread Count) for expected formats |
-| colourPalette | string | The tartan colour palette. See [below] (#Colour Palette Count) for expected formats|
+| threadCount | string | The tartan threadcount. See [below] (#thread-count) for expected formats |
+| colourPalette | string | The tartan colour palette. See [below] (#color-palette) for expected formats|
 | imageSize | number | The display size of the image. Both height and width are fixed at this size. Defaults to 500 |
 | noOfSetts | number | The number of setts to display in the image. Defaults to 1. |
 | xOffsetThreadCount | number | The number of threads to offset in the x direction Defaults to 0.|
@@ -60,7 +60,7 @@ export default App;
 
 Here is a bit about the thread count.
 
-## Colour Palette
+### Colour Palette
 
 Here is  a bit about the colour palette
 
