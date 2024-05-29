@@ -66,7 +66,9 @@ const TartanSVG: React.FC<TartanProps> = (props) => {
             <Warp tartan={tartanEntity} />
           </pattern>
         </defs>
-        <rect data-testid='tartanRect' x="0" y="0" height="100%" width="100%" fill="url(#sett)" filter={tartanEntity.useBlur ? 'url(#blur)' : ''}></rect>
+        <rect data-testid='tartanRect' x="0" y="0" height="100%" width="100%" fill="url(#sett)" filter={tartanEntity.useBlur ? 'url(#blur)' : ''}>
+          <title>{tartanEntity.name}</title>
+        </rect>
       </svg>
     )
   } else {
