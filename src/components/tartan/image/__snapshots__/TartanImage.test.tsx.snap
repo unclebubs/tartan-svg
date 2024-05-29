@@ -6,6 +6,7 @@ Object {
   "baseElement": <body>
     <div>
       <svg
+        class="clazz"
         data-testid="tartanImage"
         height="1000"
         id="testId"
@@ -169,12 +170,17 @@ Object {
           width="100%"
           x="0"
           y="0"
-        />
+        >
+          <title>
+            Test Tartan
+          </title>
+        </rect>
       </svg>
     </div>
   </body>,
   "container": <div>
     <svg
+      class="clazz"
       data-testid="tartanImage"
       height="1000"
       id="testId"
@@ -338,7 +344,11 @@ Object {
         width="100%"
         x="0"
         y="0"
-      />
+      >
+        <title>
+          Test Tartan
+        </title>
+      </rect>
     </svg>
   </div>,
   "debug": [Function],

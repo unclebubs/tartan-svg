@@ -54,6 +54,9 @@
   "author": "Craig Callaghan <craig.callaghan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/react": "^18.0.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "@rollup/plugin-commonjs": "^25.0.8",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/react-test-renderer": "^18.3.0",

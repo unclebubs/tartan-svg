@@ -5,8 +5,9 @@ import ThreadHatching from './ThreadHatching'
 import { TartanEntity } from '../../../model/tartan/TartanEntity'
 
 interface TartanProps {
-  style?: React.CSSProperties
   id?: string
+  style?: React.CSSProperties
+  className?: string
   useBlur?: boolean
   blurValue?: number
   name: string
@@ -21,7 +22,7 @@ interface TartanProps {
 const TartanSVG: React.FC<TartanProps> = (props) => {
   const [tartanEntity, setTartanEntity] = useState<TartanEntity>()
 
-  const { style, id } = props
+  const { style, className, id } = props
 
   useEffect(() => {
     const {
@@ -54,7 +55,7 @@ const TartanSVG: React.FC<TartanProps> = (props) => {
 
   if (tartanEntity !== undefined) {
     return (
-      <svg data-testid='tartanImage' id={id} height={tartanEntity?.imageSize} width={tartanEntity?.imageSize} style={style} xmlns="http://www.w3.org/2000/svg">
+      <svg data-testid='tartanImage' id={id} height={tartanEntity?.imageSize} width={tartanEntity?.imageSize} style={style} className={className} xmlns="http://www.w3.org/2000/svg">
         {filter(tartanEntity)}
         <defs>
           <mask id="threadHatchingMask" x="0" y="0" width="1" height="1">
