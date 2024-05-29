@@ -36,9 +36,35 @@ export default App;
 ```
 
 
-![demo png](https://github.com/unclebubs/tartan-img/blob/refactor-remove-redux/images/macdonald-tartan.png?raw=true)
+![demo png](./images/macdonald-tartan.png?raw=true)
 
 
 ## API
 
-### License
+| Parameter | Type | Description |
+| --- | --- | --- |
+| id | string | The id of the svg element |
+| style | object | Custom styles to be used with the svg element |
+| className | string | Custom class names to be used with the svg element |
+| useBlur | boolean | Use an SVG blux filter over the image to provide a revel of realism. Defaults to false. |
+| blurValue | number |  The level of bluring to be used bewteen 0 and 1. Defaults to 0
+| name | string | The name of the tartan which is used as an SVG title element |
+| threadCount | string | The tartan threadcount. See [below] (#Thread Count) for expected formats |
+| colourPalette | string | The tartan colour palette. See [below] (#Colour Palette Count) for expected formats|
+| imageSize | number | The display size of the image. Both height and width are fixed at this size. Defaults to 500 |
+| noOfSetts | number | The number of setts to display in the image. Defaults to 1. |
+| xOffsetThreadCount | number | The number of threads to offset in the x direction Defaults to 0.|
+| yOffsetThreadCount | number | The number of threads to offset in the y direction. Defaults to 0. |
+
+## Thread Count
+
+Here is a bit about the thread count.
+
+## Colour Palette
+
+Here is  a bit about the colour palette
+
+
+## License
+
+[MIT](https://github.com/unclebubs/react-easy-crop/blob/master/LICENSE)
