@@ -9,7 +9,6 @@
     "dist"
   ],
   "peerDependencies": {
-    "@types/react": "^18.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
@@ -17,6 +16,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
+    "@types/react": "^18.0.0",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.13",
     "@types/react-dom": "^18.0.0",
@@ -54,9 +54,6 @@
   "author": "Craig Callaghan <craig.callaghan@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@types/react": "^18.0.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "@rollup/plugin-commonjs": "^25.0.8",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/react-test-renderer": "^18.3.0",
