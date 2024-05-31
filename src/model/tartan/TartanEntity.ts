@@ -22,7 +22,17 @@ export class TartanEntity {
   useBlur: boolean
   blurValue: number
 
-  constructor (name: string, threadCount: string, palette: string, noOfSetts: number, imageSize: number, xOffsetThreadCount: number, yOffsetThreadCount: number, useBlur: boolean, blurValue: number = 0) {
+  constructor (
+    name: string,
+    threadCount: string,
+    palette: string,
+    noOfSetts: number,
+    imageSize: number,
+    xOffsetThreadCount: number,
+    yOffsetThreadCount: number,
+    useBlur: boolean,
+    blurValue: number = 0
+  ) {
     this.name = name
     this._threadCount = threadCount
     this._palette = palette

@@ -14,7 +14,14 @@ const TEST_TARTAN_PARAMS = {
 }
 
 test('renders correctly', async () => {
-  const tartanSVG = render(<TartanSVG id='testId' className='clazz' style={{ backgroundColor: 'red' }} {...TEST_TARTAN_PARAMS} />)
+  const tartanSVG = render(
+    <TartanSVG
+      id='testId'
+      className='clazz'
+      style={{ backgroundColor: 'red' }}
+      {...TEST_TARTAN_PARAMS}
+    />
+  )
   expect(tartanSVG).toMatchSnapshot()
 })
 

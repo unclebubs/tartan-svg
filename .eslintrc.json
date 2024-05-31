@@ -14,5 +14,14 @@
     "plugins": [
         "react"
     ],
-    "rules": {}
+    "rules": {
+        "max-len": [
+            "warn", 
+                {
+            "code": 120
+            }
+        ]
+
+
+    }
 }
