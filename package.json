@@ -1,6 +1,6 @@
 {
-  "name": "tartan-img",
-  "version": "0.1.0",
+  "name": "tartan-svg",
+  "version": "0.0.1",
   "private": true,
   "main": "dist/index.js",
   "module": "dist/index.es.js",
