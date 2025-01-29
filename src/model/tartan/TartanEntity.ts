@@ -60,7 +60,7 @@ export class TartanEntity {
   buildFullSet = (threads: Thread[], isHalfSet: boolean): Thread[] => {
     let fSet: Thread[] = []
     if (isHalfSet) {
-      const nextSet = threads.toReversed().slice(1, threads.length - 1)
+      const nextSet = threads.reverse().slice(1, threads.length - 1)
       fSet = threads.concat(nextSet)
     } else {
       fSet = [...threads]
