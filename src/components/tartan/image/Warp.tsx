@@ -26,7 +26,7 @@ export const Warp: React.FC<TartanProp> = (props) => {
   }
 
   return (
-    <g id="warp" mask="url(#threadHatchingMask)">
+    <g id="warp" mask="url(#threadHatchingMask)" filter={tartan.useFilter ? "url(#threadEmbossing) url(#warpVariation)" : ""}>
       <RenderWarp />
     </g>
   )

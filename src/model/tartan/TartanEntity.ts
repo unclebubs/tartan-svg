@@ -19,8 +19,7 @@ export class TartanEntity {
   _palette: string
   xOffsetThreadCount: number
   yOffsetThreadCount: number
-  useBlur: boolean
-  blurValue: number
+  useFilter: boolean
 
   constructor (
     name: string,
@@ -30,8 +29,7 @@ export class TartanEntity {
     imageSize: number,
     xOffsetThreadCount: number,
     yOffsetThreadCount: number,
-    useBlur: boolean,
-    blurValue: number = 0
+    useFilter: boolean
   ) {
     this.name = name
     this._threadCount = threadCount
@@ -40,8 +38,7 @@ export class TartanEntity {
     this.imageSize = imageSize
     this.xOffsetThreadCount = xOffsetThreadCount
     this.yOffsetThreadCount = yOffsetThreadCount
-    this.useBlur = useBlur
-    this.blurValue = blurValue
+    this.useFilter = useFilter
     if (name.length > 0 && threadCount.length > 0 && palette.length > 0) {
       this.colourPalette = new ColourPalette(this._palette)
       this.threads = TartanEntity.extractThreadsFromThreadCount(this._threadCount, this.colourPalette)
