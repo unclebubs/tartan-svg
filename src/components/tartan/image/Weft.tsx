@@ -27,7 +27,7 @@ export const Weft: React.FC<TartanProp> = (props) => {
   }
 
   return (
-    <g id="weft">
+    <g id="weft" filter={tartan.useFilter ? "url(#threadEmbossing) url(#weftVariation) url(#darkenEffect)" : ""}>
       <RederWeft />
     </g>
   )

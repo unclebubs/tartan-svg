@@ -14,7 +14,7 @@ yarn add tartan-svg
 
 ## Example Usage
 ```js
-import TartanSVG from 'tartan-img';
+import TartanSVG from 'tartan-svg';
 
 function App () {
   return (
@@ -27,7 +27,7 @@ function App () {
       imageSize={500}
       xOffsetThreadCount={0}
       yOffsetThreadCount={0}
-      useBlur={false}
+      useFilter={false}
     />
   )
 }
@@ -46,8 +46,7 @@ export default App;
 | id | string | The id of the svg element |
 | style | object | Custom styles to be used with the svg element |
 | className | string | Custom class names to be used with the svg element |
-| useBlur | boolean | Use an SVG blux filter over the image to provide a revel of realism. Defaults to false. |
-| blurValue | number |  The level of bluring to be used bewteen 0 and 1. Defaults to 0
+| useFilter | boolean | Use an SVG filters over the image to provide a revel of realism. Defaults to false. |
 | name | string | The name of the tartan which is used as an SVG title element |
 | threadCount | string | The tartan threadcount. See [below](#thread-count) for expected formats |
 | colourPalette | string | The tartan colour palette. See [below](#color-palette) for expected formats|
