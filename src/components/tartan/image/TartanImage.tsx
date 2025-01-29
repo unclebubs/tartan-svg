@@ -8,8 +8,7 @@ interface TartanProps {
   id?: string
   style?: React.CSSProperties
   className?: string
-  useBlur?: boolean
-  blurValue?: number
+  useFilter?: boolean
   name: string
   threadCount: string
   colourPalette: string
@@ -33,8 +32,7 @@ const TartanSVG: React.FC<TartanProps> = (props) => {
       noOfSetts = 1,
       xOffsetThreadCount = 0,
       yOffsetThreadCount = 0,
-      useBlur = false,
-      blurValue = 0
+      useFilter = false
     } = props
     setTartanEntity(new TartanEntity(
       name,
@@ -44,17 +42,51 @@ const TartanSVG: React.FC<TartanProps> = (props) => {
       imageSize,
       xOffsetThreadCount,
       yOffsetThreadCount,
-      useBlur,
-      blurValue
+      useFilter
     ))
   }, [props])
 
-  const filter = ({ useBlur, blurValue }: { useBlur: boolean, blurValue: number }): ReactElement | null => {
-    if (useBlur) {
+  const filter = ({ useFilter }: { useFilter: boolean }): ReactElement | null => {
+    if (useFilter) {
       return (
-        <filter data-testid='blurFilter' id="blur">
-          <feGaussianBlur stdDeviation={blurValue} in="SourceGraphic" result="BLUR" edgeMode='wrap' ></feGaussianBlur>
+        <>
+        <filter id="fabricTexture" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="3" result="noise"></feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="2" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
         </filter>
+        <filter id="dustTexture" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="4" result="dust"></feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="dust" scale="1"></feDisplacementMap>
+        </filter>
+        <filter id="threadEmbossing" x="0" y="0" width="100%" height="100%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur"></feGaussianBlur>
+            <feOffset in="blur" dx="1" dy="1" result="offsetBlur"></feOffset>
+            <feMerge>
+                <feMergeNode in="offsetBlur"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <filter id="weftVariation" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" result="weftNoise"></feTurbulence>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.12 0" result="weftOverlay"></feColorMatrix>
+            <feBlend in="SourceGraphic" in2="weftOverlay" mode="multiply"></feBlend>
+        </filter>
+        <filter id="warpVariation" x="0" y="0" width="100%" height="100%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="4" result="warpNoise"></feTurbulence>
+            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 0.12 0" result="warpOverlay"></feColorMatrix>
+            <feBlend in="SourceGraphic" in2="warpOverlay" mode="multiply"></feBlend>
+        </filter>
+        <filter id="darkenEffect">
+            <feColorMatrix type="matrix" values="
+        0.4 0   0   0   0
+        0   0.4 0   0   0
+        0   0   0.4 0   0
+        0   0   0   1   0"></feColorMatrix>
+        </filter>
+        <mask id="threadHatchingMask" x="0" y="0" width="1" height="1">
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#threadHatching)"></rect>
+          </mask>
+          </>
       )
     }
     return null
@@ -99,7 +131,7 @@ const TartanSVG: React.FC<TartanProps> = (props) => {
           height="100%"
           width="100%"
           fill="url(#sett)"
-          filter={tartanEntity.useBlur ? 'url(#blur)' : ''}
+          filter={tartanEntity.useFilter ? 'url(#fabricTexture) url(#dustTexture)' : ''}
         >
           <title>{tartanEntity.name}</title>
         </rect>
