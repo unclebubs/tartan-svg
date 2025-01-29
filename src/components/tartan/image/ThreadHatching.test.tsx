@@ -13,8 +13,7 @@ test('Sets up initial state state with actions', async () => {
     1000,
     0,
     0,
-    false,
-    0
+    false
   )
 
   const hatchingPattern = render(<ThreadHatching tartan={tartanEntity} />)

@@ -19,7 +19,7 @@ export class TartanEntity {
   _palette: string
   xOffsetThreadCount: number
   yOffsetThreadCount: number
-  useFilter: boolean
+  useFilter: boolean = false
 
   constructor (
     name: string,
